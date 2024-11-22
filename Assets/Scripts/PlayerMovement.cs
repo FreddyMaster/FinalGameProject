@@ -27,7 +27,15 @@ public class PlayerMovement : MonoBehaviour
         // Rotate the player to face the direction of movement
         if (movement.magnitude > 0) // Check if there is movement
         {
-            RotatePlayer(movement);
+            // Flip the sprite for sidescroller movement
+            if (horizontalInput > 0)
+            {
+                transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
+            else if (horizontalInput < 0)
+            {
+                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
         }
 
         // Move the player
@@ -50,15 +58,6 @@ public class PlayerMovement : MonoBehaviour
 
         // Apply movement
         rb.MovePosition(rb.position + moveSpeed * Time.fixedDeltaTime * direction);
-    }
-
-    void RotatePlayer(Vector2 direction)
-    {
-        // Calculate the angle to rotate based on the movement direction
-        float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
-
-        // Apply the rotation (z-axis for 2D) using Quaternion.Euler
-        character.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 
 }
