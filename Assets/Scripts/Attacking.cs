@@ -26,7 +26,7 @@ public class Attacking : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             // Call a method on the enemy to take damage
-            enemy.GetComponent<EnemyController>().TakeDamage(attackDamage);
+            enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
         }
 
         // Optional: Add visual or sound effects here
