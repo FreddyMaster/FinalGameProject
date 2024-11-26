@@ -46,12 +46,14 @@ public class PlayerMovement : MonoBehaviour
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
 
-        // Update weapon's rotation
+        // Rotate the weapon only on Z-axis
         weaponParent.transform.rotation = Quaternion.Euler(0, 0, angle);
 
-        // Optionally store the pointer position in the weapon parent
-        weaponParent.PointerPosition = lookDir;
+        // Flip the weapon sprite based on direction
+        bool isFacingLeft = angle > 90 || angle < -90;
+        weaponParent.FlipWeaponSprite(isFacingLeft);
     }
+
 
     void MovePlayer(Vector2 direction)
     {
