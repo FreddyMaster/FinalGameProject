@@ -12,13 +12,11 @@ public class PlayerMovement : MonoBehaviour
     private Transform character; // Player's transform for rotation
     private Vector2 movement; // Store movement direction
     private Vector2 mousePos;
-    private WeaponParent weaponParent;
 
     private void Start()
     {
         character = GetComponent<Transform>(); // Get the player's transform
         rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component
-        weaponParent = GetComponentInChildren<WeaponParent>();
     }
 
     void Update()
@@ -46,12 +44,8 @@ public class PlayerMovement : MonoBehaviour
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
 
-        // Rotate the weapon only on Z-axis
-        weaponParent.transform.rotation = Quaternion.Euler(0, 0, angle);
-
-        // Flip the weapon sprite based on direction
-        bool isFacingLeft = angle > 90 || angle < -90;
-        weaponParent.FlipWeaponSprite(isFacingLeft);
+        // Update camera position
+        cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(rb.position.x, rb.position.y, cam.transform.position.z), 0.1f);
     }
 
 
@@ -68,3 +62,4 @@ public class PlayerMovement : MonoBehaviour
     }
 
 }
+
