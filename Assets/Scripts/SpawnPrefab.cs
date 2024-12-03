@@ -15,7 +15,7 @@ public class Spawner : MonoBehaviour
     {
         if (prefabToSpawn != null)
         {
-            Instantiate(prefabToSpawn, spawnPoint.position, Quaternion.identity);
+            Instantiate(prefabToSpawn, spawnPoint.localPosition, Quaternion.identity);
         }
     }
 }
