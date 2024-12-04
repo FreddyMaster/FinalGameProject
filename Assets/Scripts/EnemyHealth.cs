@@ -1,26 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int health = 50;
+    public float maxHealth = 100f;
+    private float currentHealth;
+
+    public UnityEvent<float> OnHealthChanged;
+
+    public int scoreValue = 1;
+
+    private void Start()
+    {
+        currentHealth = maxHealth;
+        OnHealthChanged.Invoke(currentHealth);
+    }
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
-        Debug.Log($"Enemy took {damage} damage. Remaining health: {health}");
+        currentHealth -= damage;
+        currentHealth = Mathf.Max(currentHealth, 0);
+        OnHealthChanged.Invoke(currentHealth);
 
-        if (health <= 0)
+        if (currentHealth <= 0)
         {
             Die();
         }
     }
 
-    void Die()
+    private void Die()
     {
-        // Handle enemy death (e.g., play animation, remove from the scene)
-        Debug.Log("Enemy died!");
         Destroy(gameObject);
     }
 }

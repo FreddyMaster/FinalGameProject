@@ -20,15 +20,6 @@ public class PlayerHealth : MonoBehaviour
         healthText.text = currentHealth + "/" + maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            TakeDamage(5);
-        }
-    }
-
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
