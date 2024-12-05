@@ -4,16 +4,47 @@ using UnityEngine;
 
 public class Attacking : MonoBehaviour
 {
+    public PlayerMana playerMana;
     public Transform attackPoint; // The point where the attack originates
     public float attackRange = 1f; // Range of the sword's attack
     public LayerMask enemyLayers; // Layer for enemies that can be hit
     public int attackDamage = 10; // Damage dealt by the attack
+    public int manaRegenRate = 1;
+    private float lastAttackTime = 0f;
+    private bool isRegeneratingMana = false;
+    private float regenDelay = .5f; // Delay to start regenerating mana after the attack
 
     void Update()
     {
+        // Attack logic
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Attack();
+
+            if (playerMana.currentMana >= 5)
+            {
+                playerMana.TakeMana(5);
+            }
+            else
+            {
+                Debug.Log("Not enough mana to attack!");
+            }
+
+            // Reset the timer and stop regeneration if attacking
+            lastAttackTime = Time.time;
+            if (isRegeneratingMana)
+            {
+                StopCoroutine(playerMana.RegenManaCoroutine(manaRegenRate));
+                isRegeneratingMana = false;
+            }
+        }
+
+        // Check if enough time has passed since the last attack to start regenerating mana
+        if (Time.time >= lastAttackTime + regenDelay && !isRegeneratingMana && playerMana.currentMana < playerMana.maxMana)
+        {
+            // Start regenerating mana
+            StartCoroutine(playerMana.RegenManaCoroutine(manaRegenRate));
+            isRegeneratingMana = true;
         }
     }
 
@@ -36,7 +67,10 @@ public class Attacking : MonoBehaviour
     // Draw the attack range in the Scene view for visualization
     private void OnDrawGizmosSelected()
     {
-        if (attackPoint == null) return;
+        if (attackPoint == null)
+        {
+            return;
+        }
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);

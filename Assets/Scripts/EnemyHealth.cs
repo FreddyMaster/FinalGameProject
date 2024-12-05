@@ -9,8 +9,6 @@ public class EnemyHealth : MonoBehaviour
 
     public UnityEvent<float> OnHealthChanged;
 
-    public int scoreValue = 1;
-
     private void Start()
     {
         currentHealth = maxHealth;

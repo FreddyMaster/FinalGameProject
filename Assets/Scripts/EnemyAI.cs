@@ -18,9 +18,9 @@ public class EnemyAI : MonoBehaviour
     private Transform target;
     private bool isChasing;
     private float attackRange = 10f;
-    public float accuracyReduction = 0.2f; // New field for reducing accuracy
-    private float shotDelay = 0.1f; // New field for introducing delay
-    private float trajectorySpread = 5f; // New field for projectile sprea
+    public float accuracyReduction = 0.2f;
+    private float shotDelay = 0.1f; 
+    private float trajectorySpread = 5f;
 
     private float lastShotTime = 0f; // Time of the last shot
     
