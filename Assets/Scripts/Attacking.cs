@@ -6,6 +6,7 @@ public class Attacking : MonoBehaviour
 {
     public PlayerMana playerMana;
     public Transform attackPoint; // The point where the attack originates
+    public GameObject pauseMenu;
     public float attackRange = 1f; // Range of the sword's attack
     public LayerMask enemyLayers; // Layer for enemies that can be hit
     public int attackDamage = 10; // Damage dealt by the attack
@@ -17,7 +18,7 @@ public class Attacking : MonoBehaviour
     void Update()
     {
         // Attack logic
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (pauseMenu.activeSelf == false && Input.GetKeyDown(KeyCode.Mouse0))
         {
             Attack();
 

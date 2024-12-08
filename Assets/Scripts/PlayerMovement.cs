@@ -30,7 +30,6 @@ public class PlayerMovement : MonoBehaviour
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-
         // Move the player
         MovePlayer(movement);
     }
