@@ -16,7 +16,6 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movement; // Store movement direction
     private Vector2 mousePos;
     private bool isDashing = false;
-    private float dashEndTime = 0f;
     private float lastDashTime = 0f;
 
     private void Start()
