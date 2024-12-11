@@ -123,15 +123,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: pot
     originalName: 
-    pivot: {x: 0.6, y: -1}
+    pivot: {x: 0.5647059, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 80
-      height: 32
+      width: 85
+      height: 64
     spriteID: f28900665bca56b48911ac3989622f3e
     spriteBone: []
     spriteOutline: []
@@ -155,9 +155,9 @@ ScriptedImporter:
       additiveSortOrder: 0
       cellRect:
         x: 0
-        y: 32
-        width: 80
-        height: 32
+        y: 0
+        width: 85
+        height: 64
       spriteId: f28900665bca56b48911ac3989622f3e
     linkedCells: []
     parentIndex: -1

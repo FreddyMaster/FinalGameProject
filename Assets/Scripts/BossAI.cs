@@ -5,111 +5,150 @@ using UnityEngine.AI;
 
 public class BossAI : MonoBehaviour
 {
-    // Patrol points
-    public Transform[] patrolPoints;
-
-    // Melee attack range
-    public float attackRange = 1f;
-
-    // Melee attack damage
-    public int attackDamage = 10;
-
-    // Melee attack cooldown
-    public float attackCooldown = 1f;
-
-    // Movement speed
-    public float speed = 5f;
-
-    // Current target
-    private Transform target;
-
-    // Current patrol point
-    private int currentPatrolPoint = 0;
-
-    // NavMeshAgent
+    public GameObject projectilePrefab;
+    public float patrolRadius = 10f;
+    public float fireRate = 0.5f;
+    public int shootforce = 3000;
+    private Vector3 patrolCenter;
     private NavMeshAgent agent;
+    private Transform target;
+    private float attackRange = 3f;
+    private float shotDelay = 0.5f; 
+    private float cooldownTime = 2f; // Cooldown time after an attack sequence
+    private float lastShotTime = 0f; // Time of the last shot
+    private float lastAttackEndTime = 0f; // Time when the last attack sequence ended
+    private int attackCount = 0; // Counter for the number of attacks
 
-    // Melee attack timer
-    private float attackTimer = 0f;
-
-    void Start()
+    private void Start()
     {
-        // Initialize NavMeshAgent
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = speed;
-
-        // Set initial target to player
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+        patrolCenter = transform.position;
         target = GameObject.FindGameObjectWithTag("Player").transform;
-
-        // Start patrolling
-        Patrol();
     }
 
-    void Update()
+    private void Update()
     {
-        // Check if target is in attack range
-        float distanceToTarget = Vector2.Distance(transform.position, target.position);
-        if (distanceToTarget <= attackRange)
+        float distance = Vector3.Distance(transform.position, target.position);
+        if (distance <= attackRange)
         {
-            // Attack target
-            Attack();
+            // Stop moving and attack if within range
+            agent.SetDestination(transform.position); // Stop the agent
+            if (Time.time >= lastAttackEndTime + cooldownTime)
+            {
+                // Check if enough time has passed since the last shot
+                if (Time.time >= lastShotTime + 1f / fireRate)
+                {
+                    // Choose between burst, spread, and spiral attack
+                    float randomValue = Random.value;
+                    if (randomValue < 0.33f)
+                    {
+                        StartCoroutine(BurstAttack());
+                    }
+                    else if (randomValue < 0.66f)
+                    {
+                        StartCoroutine(SpreadAttack());
+                    }
+                    else
+                    {
+                        StartCoroutine(SpiralAttack());
+                    }
+                    lastShotTime = Time.time; // Update the time of the last shot
+                    attackCount++; // Increment the attack counter
+
+                    // Check if 3 attacks have been performed
+                    if (attackCount >= 3)
+                    {
+                        Invoke(nameof(ResetShotTimer), cooldownTime);
+                    }
+                }
+            }
         }
         else
         {
-            // Patrol
-            Patrol();
+            // Move towards the player if out of range
+            agent.SetDestination(target.position);
         }
     }
 
-    void Patrol()
+    private void Patrol()
     {
-        // Move to current patrol point
-        agent.SetDestination(patrolPoints[currentPatrolPoint].position);
-
-        // Check if arrived at patrol point
-        if (Vector2.Distance(transform.position, patrolPoints[currentPatrolPoint].position) < 0.1f)
+        float distance = Vector3.Distance(transform.position, patrolCenter);
+        if (distance > patrolRadius)
         {
-            // Move to next patrol point
-            currentPatrolPoint = (currentPatrolPoint + 1) % patrolPoints.Length;
-        }
-    }
-
-    void Attack()
-    {
-        // Check if attack cooldown is over
-        if (attackTimer <= 0f)
-        {
-            // Deal damage to target
-            target.GetComponent<Health>().TakeDamage(attackDamage);
-
-            // Reset attack cooldown
-            attackTimer = attackCooldown;
+            agent.SetDestination(patrolCenter);
         }
         else
         {
-            // Decrease attack cooldown
-            attackTimer -= Time.deltaTime;
+            Vector3 randomPosition = patrolCenter + new Vector3(
+                Random.Range(-patrolRadius, patrolRadius),
+                0,
+                Random.Range(-patrolRadius, patrolRadius));
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(randomPosition, out hit, 1f, NavMesh.AllAreas))
+            {
+                agent.SetDestination(hit.position);
+            }
         }
     }
-}
 
-// Simple health script for player
-public class Health : MonoBehaviour
-{
-    public int health = 100;
-
-    public void TakeDamage(int damage)
+    private IEnumerator BurstAttack()
     {
-        health -= damage;
-        if (health <= 0)
+        for (int i = 0; i < 3; i++)
         {
-            Die();
+            Shoot(Vector3.zero); // No spread for burst
+            yield return new WaitForSeconds(shotDelay);
         }
     }
 
-    void Die()
+    private IEnumerator SpreadAttack()
     {
-        // Handle player death
-        Debug.Log("Player died!");
+        for (int i = 0; i < 3; i++)
+        {
+            Shoot(new Vector3(
+                Random.Range(-0.5f, 0.5f),
+                Random.Range(-0.5f, 0.5f),
+                Random.Range(-0.5f, 0.5f)));
+            yield return new WaitForSeconds(shotDelay);
+        }
+    }
+
+    private IEnumerator SpiralAttack()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            Vector3 spread = new Vector3(
+                Mathf.Cos(i * Mathf.PI * 2f / 6f) * 0.5f,
+                Mathf.Sin(i * Mathf.PI * 2f / 6f) * 0.5f,
+                0);
+            Shoot(spread);
+            yield return new WaitForSeconds(shotDelay);
+        }
+    }
+
+    private void Shoot(Vector3 spread)
+    {
+        // Calculate the direction to the target with reduced accuracy
+        Vector3 directionToTarget = (target.position - transform.position).normalized + spread;
+
+        // Instantiate and shoot the projectile
+        GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+
+        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.AddForce(directionToTarget * shootforce);
+        }
+        else
+        {
+            Debug.LogWarning("Projectile is missing Rigidbody component.");
+        }
+    }
+
+    private void ResetShotTimer()
+    {
+        lastAttackEndTime = Time.time; // Start cooldown
+        attackCount = 0; // Reset attack counter
     }
 }

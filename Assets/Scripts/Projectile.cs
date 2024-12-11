@@ -15,9 +15,6 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-    if (collision.gameObject.CompareTag("Enemy")){
-        return;
-    }
         // Check if the projectile hits an enemy
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -26,9 +23,11 @@ public class Projectile : MonoBehaviour
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(damage); // Call TakeDamage on the player            
-            // Destroy the projectile on impact with a player
+
             }
         }
-    Destroy(gameObject);      
+        // Destroy the projectile on impact with a player
+        Destroy(gameObject);
     }
 }
+
