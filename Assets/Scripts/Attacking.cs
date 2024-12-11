@@ -10,7 +10,7 @@ public class Attacking : MonoBehaviour
     public float attackRange = 1f; // Range of the sword's attack
     public LayerMask enemyLayers; // Layer for enemies that can be hit
     public int attackDamage = 10; // Damage dealt by the attack
-    public int manaRegenRate = 1;
+    public int manaRegenRate = 5;
     private float lastAttackTime = 0f;
     private bool isRegeneratingMana = false;
     private float regenDelay = .5f; // Delay to start regenerating mana after the attack

@@ -7,9 +7,9 @@ using UnityEngine.Rendering;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f; // Movement speed
-    public float dashSpeed = 50f; // Dashing speed multiplier
-    public float dashDuration = 0.5f; // Duration of the dash
-    public float dashCooldown = 2f; // Cooldown time between dashes
+    public float dashSpeed = 10f; // Dashing speed multiplier
+    public float dashDuration = 0.25f; // Duration of the dash
+    public float dashCooldown = 1f; // Cooldown time between dashes
     public Camera cam;
     private Rigidbody2D rb; // Rigidbody2D reference for movement
     private Transform character; // Player's transform for rotation

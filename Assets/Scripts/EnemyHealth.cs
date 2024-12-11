@@ -8,6 +8,7 @@ public class EnemyHealth : MonoBehaviour
     private float currentHealth;
 
     public UnityEvent<float> OnHealthChanged;
+    public event System.Action OnDeath;
 
     private void Start()
     {
@@ -24,6 +25,7 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
+            OnDeath?.Invoke();
         }
     }
 
