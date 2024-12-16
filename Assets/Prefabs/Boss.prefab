@@ -11,15 +11,13 @@ GameObject:
   - component: {fileID: 4524074975934770198}
   - component: {fileID: 4221946172348932264}
   - component: {fileID: 4391008656130475852}
-  - component: {fileID: 3650403444573509770}
-  - component: {fileID: 6592913215371362151}
   - component: {fileID: 673360955899045201}
   - component: {fileID: 7779966082495823088}
-  - component: {fileID: 6648128553936245510}
   - component: {fileID: 1895117919730091952}
+  - component: {fileID: 2844877853217097523}
   m_Layer: 3
   m_Name: Boss
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 4876704366753244523}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 50.37, y: 15.42, z: 0}
+  m_LocalPosition: {x: 47.989223, y: 10.012067, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -136,41 +134,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3650403444573509770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4876704366753244523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 644035d17500ff34786610a5d6f0201d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 2548633965204381329, guid: 6289174f734dacc4b9fc3020ff4d5e39, type: 3}
-  stoppingDistance: 5
-  patrolRadius: 10
-  fireRate: 0.75
-  firePoint: {fileID: 4524074975934770198}
-  shootforce: 300
-  accuracyReduction: 0.05
---- !u!114 &6592913215371362151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4876704366753244523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c74d163c1f56cf141952a563164797e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 50
-  OnHealthChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!195 &673360955899045201
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -205,22 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e39f6090724e4a4a8aadeb042afa2bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6648128553936245510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4876704366753244523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c74d163c1f56cf141952a563164797e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  OnHealthChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1895117919730091952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,3 +184,20 @@ MonoBehaviour:
   patrolRadius: 10
   fireRate: 1
   shootforce: 300
+--- !u!114 &2844877853217097523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4876704366753244523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c74d163c1f56cf141952a563164797e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 150
+  OnHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  EndMenu: {fileID: 0}

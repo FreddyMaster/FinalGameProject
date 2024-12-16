@@ -7,6 +7,9 @@ public class EnemySpawner : MonoBehaviour
     // Reference to the enemy prefab
     public GameObject enemyPrefab;
 
+    // Reference to the health potion prefab
+    public GameObject healthPotionPrefab;
+
     // Reference to the room bounds
     private PolygonCollider2D roomBounds;
 
@@ -36,7 +39,6 @@ public class EnemySpawner : MonoBehaviour
             doors.gameObject.SetActive(true);
         }
     }
-
 
     private void SpawnEnemy()
     {
@@ -87,7 +89,21 @@ public class EnemySpawner : MonoBehaviour
         // Disable the tilemap if all enemies in the room are defeated
         if (numEnemiesInRoom == 0)
         {
+            // Place a health potion in the center of the room
+            Vector3 centerPosition = new Vector3(
+                roomBounds.bounds.center.x,
+                roomBounds.bounds.center.y,
+                0);
+            GameObject healthPotion = Instantiate(healthPotionPrefab, centerPosition, Quaternion.identity);
+            Debug.Log("Placed health potion at center position " + centerPosition);
+
             doors.gameObject.SetActive(false);
+
+            // Disable colliders once the room is cleared
+            GetComponent<PolygonCollider2D>().enabled = false;
         }
     }
 }
+
+
+

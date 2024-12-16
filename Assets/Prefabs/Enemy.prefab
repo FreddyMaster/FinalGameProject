@@ -179,7 +179,7 @@ MonoBehaviour:
   fireRate: 0.75
   firePoint: {fileID: 8283328675505070487}
   shootforce: 300
-  accuracyReduction: 0.05
+  accuracyReduction: 0.001
 --- !u!114 &5088411563788146800
 MonoBehaviour:
   m_ObjectHideFlags: 0

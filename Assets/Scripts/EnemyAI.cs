@@ -18,13 +18,14 @@ public class EnemyAI : MonoBehaviour
     private Transform target;
     private bool isChasing;
     private float attackRange = 10f;
-    public float accuracyReduction = 0.2f;
     private float shotDelay = 0.1f; 
     private float trajectorySpread = 5f;
+    private float minDistanceBeforeShooting = 1f;
 
     private float lastShotTime = 0f; // Time of the last shot
+    private float lastAttackEndTime = 0f; // Time of the last attack
+    private int attackCount = 0; // Number of attacks performed
     
-
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -37,19 +38,29 @@ public class EnemyAI : MonoBehaviour
     private void Update()
     {
         float distance = Vector3.Distance(transform.position, target.position);
-        if (distance < stoppingDistance)
+        
+        if (distance <= attackRange)
         {
-            if (distance <= attackRange)
+            // AI is within attack range, stop chasing
+            isChasing = false;
+
+            // Check if enough time has passed since the last shot
+            if (Time.time >= lastShotTime + 1f / fireRate)
             {
-                // Check if enough time has passed since the last shot
-                if (Time.time >= lastShotTime + 1f / fireRate)
+                // Only shoot if far enough away from the player
+                if (distance > minDistanceBeforeShooting)
                 {
                     Shoot();
                     lastShotTime = Time.time; // Update the time of the last shot
                 }
             }
+        }
+        else
+        {
+            // AI is outside attack range, start chasing
             isChasing = true;
         }
+
         if (isChasing)
         {
             agent.SetDestination(target.position);
@@ -81,15 +92,10 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
- void Shoot()
+    void Shoot()
     {
-        // Calculate the direction to the target with reduced accuracy
+        // Calculate the direction to the target
         Vector3 directionToTarget = (target.position - firePoint.position).normalized;
-        Vector3 randomOffset = new Vector3(
-            Random.Range(-accuracyReduction, accuracyReduction),
-            Random.Range(-accuracyReduction, accuracyReduction),
-            Random.Range(-accuracyReduction, accuracyReduction));
-        Vector3 reducedDirection = directionToTarget + randomOffset.normalized;
 
         // Apply trajectory spread
         Quaternion rotation = Quaternion.Euler(
@@ -101,10 +107,9 @@ public class EnemyAI : MonoBehaviour
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            Debug.Log("Projectile has a Rigidbody component.");
-            Debug.Log(shootforce);
-            Debug.Log(directionToTarget);
-            rb.AddForce(reducedDirection * shootforce);
+            // Randomly set the projectile to shoot slowly
+            float randomSpeedFactor = Random.Range(0.5f, 1f);
+            rb.AddForce(directionToTarget * shootforce * randomSpeedFactor);
         }
         else
         {
@@ -113,10 +118,25 @@ public class EnemyAI : MonoBehaviour
 
         // Introduce delay before next shot
         Invoke(nameof(ResetShotTimer), shotDelay);
+
+        // Increment the attack counter
+        attackCount++;
+
+        // Check if 3 attacks have been performed
+        if (attackCount >= 3)
+        {
+            Invoke(nameof(ResetAttackCounter), 1f / fireRate);
+        }
     }
 
     private void ResetShotTimer()
     {
         lastShotTime = Time.time;
     }
+
+    private void ResetAttackCounter()
+    {
+        attackCount = 0;
+    }
 }
+

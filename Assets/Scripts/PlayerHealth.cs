@@ -8,9 +8,9 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 25;
     public int currentHealth;
-
     public HealthBar healthBar;
     public TextMeshProUGUI healthText;
+    public GameObject gameOverMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -24,16 +24,22 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= damage;
 
-        if (currentHealth <= 0) {
-            Die();
+        if (currentHealth <= 0)
+        {
+            gameOverMenu.SetActive(true);
+            Time.timeScale = 0f;
         }
 
         healthBar.SetHealth(currentHealth);
         healthText.text = currentHealth + "/" + maxHealth;
     }
 
-    void Die()
+    public void Heal(int healAmount)
     {
-        Debug.Log("You Died");
+        currentHealth += healAmount;
+        currentHealth = Mathf.Min(currentHealth, maxHealth);
+        healthBar.SetHealth(currentHealth);
+        healthText.text = currentHealth + "/" + maxHealth;
     }
+
 }

@@ -60,6 +60,7 @@ public class Attacking : MonoBehaviour
             // Call a method on the enemy to take damage
             enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
         }
+        
 
         // Optional: Add visual or sound effects here
         Debug.Log("Attacked!");

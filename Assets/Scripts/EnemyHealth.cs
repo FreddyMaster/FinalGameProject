@@ -6,10 +6,8 @@ public class EnemyHealth : MonoBehaviour
 {
     public float maxHealth = 100f;
     private float currentHealth;
-
     public UnityEvent<float> OnHealthChanged;
     public event System.Action OnDeath;
-
     private void Start()
     {
         currentHealth = maxHealth;
@@ -26,6 +24,10 @@ public class EnemyHealth : MonoBehaviour
         {
             Die();
             OnDeath?.Invoke();
+            if(gameObject.tag == "Boss")
+            {
+                SceneManager.LoadScene("WinScreen");
+            }
         }
     }
 
@@ -34,3 +36,4 @@ public class EnemyHealth : MonoBehaviour
         Destroy(gameObject);
     }
 }
+
