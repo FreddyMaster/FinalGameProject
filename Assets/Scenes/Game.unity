@@ -183,7 +183,8 @@ Transform:
   m_LocalPosition: {x: -16.99, y: 29.76, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 191520779}
   m_Father: {fileID: 1961829504}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &22599176
@@ -201,6 +202,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 6472578480207984824, guid: 93bd043dcdd573c43bc0f676a1eefd44, type: 3}
   healthPotionPrefab: {fileID: 2307611514176089614, guid: cf3533dd9bca2514586ff46abb132ddf, type: 3}
   doors: {fileID: 622623005}
+  pointPosition: {fileID: 191520779}
 --- !u!60 &22599177
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -245,14 +247,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 26.347664, y: 0.92742157}
-      - {x: -1.1204166, y: 0.8654859}
-      - {x: -1.0958667, y: -4.026867}
+    - - {x: 25.750444, y: -1.5373592}
+      - {x: 23.664251, y: -1.2508774}
+      - {x: 22.76116, y: 0.09040642}
+      - {x: -0.58373356, y: -0.1447432}
+      - {x: -0.21191835, y: -3.7111702}
       - {x: 18.443228, y: -3.9300916}
-      - {x: 18.49542, y: -9.0874}
-      - {x: 29.379047, y: -9.037453}
-      - {x: 29.387323, y: -4.139242}
-      - {x: 26.427727, y: -4.1669407}
+      - {x: 19.474077, y: -6.4355564}
+      - {x: 26.948189, y: -7.9009476}
+      - {x: 28.092972, y: -4.2339497}
+      - {x: 25.670057, y: -4.072233}
   m_UseDelaunayMesh: 0
 --- !u!1 &159098182
 GameObject:
@@ -285,7 +289,8 @@ Transform:
   m_LocalPosition: {x: 13.55, y: 39.86, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 225540509}
   m_Father: {fileID: 1961829504}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &159098184
@@ -332,18 +337,18 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 9.247135, y: -5.012142}
-      - {x: 9.172641, y: -0.42548776}
+    - - {x: 9.561737, y: -6.3295403}
+      - {x: 8.622085, y: -1.7822115}
       - {x: 4.8650203, y: -0.4606743}
-      - {x: -0.4842825, y: -0.41674042}
-      - {x: -0.40146255, y: -10.687172}
+      - {x: 0.30222416, y: -0.5937042}
+      - {x: 1.2305393, y: -9.802351}
       - {x: 5.274599, y: -10.616995}
       - {x: 11.760885, y: -10.749979}
-      - {x: 11.769995, y: -9.951963}
-      - {x: 34.76472, y: -9.917124}
-      - {x: 34.832695, y: 1.6272621}
-      - {x: 22.444122, y: 1.6931114}
-      - {x: 22.344711, y: -5.18351}
+      - {x: 11.671679, y: -9.145794}
+      - {x: 32.562504, y: -8.894665}
+      - {x: 32.790802, y: 1.3580017}
+      - {x: 22.601189, y: 0.48143768}
+      - {x: 22.54134, y: -6.481243}
   m_UseDelaunayMesh: 0
 --- !u!1839735485 &159098185
 Tilemap:
@@ -398,6 +403,38 @@ MonoBehaviour:
   enemyPrefab: {fileID: 6472578480207984824, guid: 93bd043dcdd573c43bc0f676a1eefd44, type: 3}
   healthPotionPrefab: {fileID: 2307611514176089614, guid: cf3533dd9bca2514586ff46abb132ddf, type: 3}
   doors: {fileID: 622623005}
+  pointPosition: {fileID: 225540509}
+--- !u!1 &191520778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 191520779}
+  m_Layer: 0
+  m_Name: Potion Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &191520779
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191520778}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 22, y: -3.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 22599175}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &209088574
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,6 +503,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &225540508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 225540509}
+  m_Layer: 0
+  m_Name: Potion Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &225540509
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225540508}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 28.02, y: -4.67, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 159098183}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &303166801
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,7 +596,8 @@ Transform:
   m_LocalPosition: {x: 36.82, y: 53.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1102340888}
   m_Father: {fileID: 1961829504}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &325569439
@@ -575,17 +644,20 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 8.992455, y: 2.564663}
-      - {x: 3.1557684, y: 2.4715269}
+    - - {x: 11.04694, y: 0.2733841}
+      - {x: 5.9694366, y: 2.2287712}
+      - {x: 2.9420195, y: 0.45618033}
       - {x: 1.6496539, y: 2.4363403}
-      - {x: -0.16592884, y: 2.6076164}
-      - {x: -0.21045113, y: -11.037361}
-      - {x: 4.7970715, y: -10.99902}
-      - {x: 11.315191, y: -10.909157}
-      - {x: 11.356134, y: -4.9219856}
-      - {x: 26.937538, y: -4.8989754}
-      - {x: 27.123913, y: 2.8073502}
-      - {x: 15.309109, y: 2.4888}
+      - {x: 0.3226385, y: 1.4167328}
+      - {x: 0.7056141, y: -10.090759}
+      - {x: 4.949747, y: -10.052418}
+      - {x: 10.460196, y: -10.35952}
+      - {x: 10.440069, y: -4.769306}
+      - {x: 24.708443, y: -4.288265}
+      - {x: 23.581894, y: 1.6729622}
+      - {x: 20.772526, y: 1.7386055}
+      - {x: 16.14373, y: 2.2653694}
+      - {x: 13.018948, y: 0.2597046}
   m_UseDelaunayMesh: 0
 --- !u!1839735485 &325569440
 Tilemap:
@@ -640,6 +712,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 6472578480207984824, guid: 93bd043dcdd573c43bc0f676a1eefd44, type: 3}
   healthPotionPrefab: {fileID: 2307611514176089614, guid: cf3533dd9bca2514586ff46abb132ddf, type: 3}
   doors: {fileID: 622623005}
+  pointPosition: {fileID: 1102340888}
 --- !u!1 &376009246
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,7 +744,8 @@ Transform:
   m_LocalPosition: {x: 2.65, y: 53.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2092358545}
   m_Father: {fileID: 1961829504}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &376009248
@@ -718,15 +792,18 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 7.8531303, y: 3.8420868}
-      - {x: 4.05342, y: 3.679901}
+    - - {x: 10.040216, y: 1.5357056}
+      - {x: 4.7294283, y: 1.6518781}
       - {x: 4.115772, y: -3.2014809}
+      - {x: 5.7608986, y: -4.348484}
+      - {x: 6.33107, y: -6.722954}
       - {x: 3.9667234, y: -9.809856}
       - {x: 3.9990902, y: -14.331486}
       - {x: 9.232454, y: -14.226849}
       - {x: 9.696554, y: -13.026016}
-      - {x: 20.028688, y: -12.95982}
-      - {x: 20.280704, y: 3.5590744}
+      - {x: 13.137224, y: -11.07029}
+      - {x: 19.909395, y: -11.925926}
+      - {x: 19.525166, y: 2.5649452}
   m_UseDelaunayMesh: 0
 --- !u!1839735485 &376009249
 Tilemap:
@@ -781,6 +858,69 @@ MonoBehaviour:
   enemyPrefab: {fileID: 6472578480207984824, guid: 93bd043dcdd573c43bc0f676a1eefd44, type: 3}
   healthPotionPrefab: {fileID: 2307611514176089614, guid: cf3533dd9bca2514586ff46abb132ddf, type: 3}
   doors: {fileID: 622623005}
+  pointPosition: {fileID: 2092358545}
+--- !u!1 &415471774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 415471775}
+  m_Layer: 0
+  m_Name: Potion Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &415471775
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415471774}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.19, y: 0.14, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 896862170}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &443644084
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 443644085}
+  m_Layer: 0
+  m_Name: Potion Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &443644085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443644084}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.51, y: -1.88, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1109620613}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &451216841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -811,6 +951,37 @@ MonoBehaviour:
   m_Area: 0
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!1 &519177372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 519177373}
+  m_Layer: 0
+  m_Name: Potion Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &519177373
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519177372}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.08, y: -4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 836440875}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -23088,7 +23259,8 @@ Transform:
   m_LocalPosition: {x: -16.05, y: 34.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1095387625}
   m_Father: {fileID: 1961829504}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &739710035
@@ -23106,6 +23278,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 6472578480207984824, guid: 93bd043dcdd573c43bc0f676a1eefd44, type: 3}
   healthPotionPrefab: {fileID: 2307611514176089614, guid: cf3533dd9bca2514586ff46abb132ddf, type: 3}
   doors: {fileID: 622623005}
+  pointPosition: {fileID: 1095387625}
 --- !u!60 &739710036
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -23152,15 +23325,18 @@ PolygonCollider2D:
     m_Paths:
     - - {x: 26.062569, y: 1.6947556}
       - {x: 21.994795, y: 1.7286224}
-      - {x: 22.133068, y: 8.732285}
-      - {x: 10.883191, y: 8.676868}
-      - {x: 10.820032, y: 4.8691025}
-      - {x: 5.8607903, y: 4.830345}
+      - {x: 21.937841, y: 7.505142}
+      - {x: 18.75249, y: 7.431343}
+      - {x: 16.002167, y: 6.4463005}
+      - {x: 11.050529, y: 6.640934}
+      - {x: 10.820032, y: 3.6419601}
+      - {x: 5.88868, y: 3.4916458}
       - {x: 5.82658, y: 1.7369576}
       - {x: -4.1291904, y: 1.7599065}
-      - {x: -4.01925, y: -1.0623435}
+      - {x: -3.6566858, y: 0.1926843}
       - {x: 1.4398941, y: -1.0393178}
-      - {x: 25.938562, y: -0.7733956}
+      - {x: 5.923664, y: 0.17734146}
+      - {x: 25.687555, y: -0.10404593}
   m_UseDelaunayMesh: 0
 --- !u!1839735485 &739710037
 Tilemap:
@@ -23230,7 +23406,8 @@ Transform:
   m_LocalPosition: {x: -9.87, y: 16.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 519177373}
   m_Father: {fileID: 1961829504}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &836440876
@@ -23248,6 +23425,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 6472578480207984824, guid: 93bd043dcdd573c43bc0f676a1eefd44, type: 3}
   healthPotionPrefab: {fileID: 2307611514176089614, guid: cf3533dd9bca2514586ff46abb132ddf, type: 3}
   doors: {fileID: 622623005}
+  pointPosition: {fileID: 519177373}
 --- !u!60 &836440877
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -23292,13 +23470,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 9.960651, y: 0.5881901}
-      - {x: -1.0282707, y: 0.48918322}
+    - - {x: 9.487108, y: -0.611454}
+      - {x: -0.99670124, y: -0.5841811}
       - {x: -0.9995951, y: -3.0997105}
       - {x: -1.0787423, y: -5.9838696}
       - {x: 0.89221096, y: -5.983324}
-      - {x: 0.97385705, y: -7.989952}
-      - {x: 9.882184, y: -8.055871}
+      - {x: 1.1317044, y: -7.137574}
+      - {x: 9.629626, y: -7.1719227}
   m_UseDelaunayMesh: 0
 --- !u!1 &881530217 stripped
 GameObject:
@@ -23336,7 +23514,8 @@ Transform:
   m_LocalPosition: {x: -16.05, y: 44.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 415471775}
   m_Father: {fileID: 1961829504}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &896862171
@@ -23383,13 +23562,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -4.015051, y: 5.2852936}
+    - - {x: -3.9374957, y: 4.1219635}
       - {x: -4.0395584, y: -0.1542589}
-      - {x: -4.062349, y: -6.4841385}
-      - {x: 5.413568, y: -6.406925}
-      - {x: 5.5882187, y: -3.458641}
-      - {x: 10.141204, y: -3.4170227}
-      - {x: 10.293772, y: 5.4436493}
+      - {x: -3.6487203, y: -5.2174034}
+      - {x: 4.5346065, y: -5.2694473}
+      - {x: 5.277997, y: -2.527977}
+      - {x: 10.063648, y: -2.4863586}
+      - {x: 9.880143, y: 4.357872}
   m_UseDelaunayMesh: 0
 --- !u!1839735485 &896862172
 Tilemap:
@@ -23444,6 +23623,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 6472578480207984824, guid: 93bd043dcdd573c43bc0f676a1eefd44, type: 3}
   healthPotionPrefab: {fileID: 2307611514176089614, guid: cf3533dd9bca2514586ff46abb132ddf, type: 3}
   doors: {fileID: 622623005}
+  pointPosition: {fileID: 415471775}
 --- !u!1839735485 &917376966 stripped
 Tilemap:
   m_CorrespondingSourceObject: {fileID: 5000000000000002, guid: 03c25fb010f14bc4822d0e53c45579de, type: 3}
@@ -23597,6 +23777,68 @@ Transform:
   - {fileID: 303166802}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1095387624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1095387625}
+  m_Layer: 0
+  m_Name: Potion Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1095387625
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095387624}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 16.05, y: 3.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 739710034}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1102340887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1102340888}
+  m_Layer: 0
+  m_Name: Potion Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1102340888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102340887}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.2, y: -2.9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 325569438}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1109620611
 GameObject:
   m_ObjectHideFlags: 0
@@ -23627,7 +23869,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 443644085}
   m_Father: {fileID: 1961829504}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1109620614
@@ -23645,6 +23888,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 6472578480207984824, guid: 93bd043dcdd573c43bc0f676a1eefd44, type: 3}
   healthPotionPrefab: {fileID: 2307611514176089614, guid: cf3533dd9bca2514586ff46abb132ddf, type: 3}
   doors: {fileID: 622623005}
+  pointPosition: {fileID: 443644085}
 --- !u!60 &1109620615
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -23689,12 +23933,43 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 3.607212, y: 0.6054611}
-      - {x: -1.0637817, y: 0.6471932}
-      - {x: -1.2453494, y: -5.0362196}
-      - {x: 8.084024, y: -4.961069}
-      - {x: 8.052756, y: 0.6471934}
+    - - {x: 3.607212, y: -0.51503134}
+      - {x: -0.41016006, y: -0.72229767}
+      - {x: -0.5252881, y: -3.842246}
+      - {x: 7.835026, y: -4.0895753}
+      - {x: 7.523635, y: -0.7222975}
   m_UseDelaunayMesh: 0
+--- !u!1 &1178858108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1178858109}
+  m_Layer: 0
+  m_Name: Potion Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1178858109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178858108}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9, y: -4.9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1751070189}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1354190570
 GameObject:
   m_ObjectHideFlags: 0
@@ -23729,6 +24004,37 @@ Transform:
   - {fileID: 1889612910}
   - {fileID: 1550550237}
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1404911178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1404911179}
+  m_Layer: 0
+  m_Name: Potion Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1404911179
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404911178}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.03, y: -4.73, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1908652906}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1550550236
 GameObject:
@@ -23822,7 +24128,8 @@ Transform:
   m_LocalPosition: {x: 20.58, y: 53.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1178858109}
   m_Father: {fileID: 1961829504}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &1751070190
@@ -23869,17 +24176,18 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 8.992455, y: 2.564663}
-      - {x: 3.1557684, y: 2.4715269}
+    - - {x: 8.957607, y: 1.4495888}
+      - {x: 3.2603064, y: 1.6003721}
       - {x: 3.183597, y: -5.549179}
-      - {x: 3.1726484, y: -9.844379}
-      - {x: 3.3085918, y: -17.12801}
+      - {x: 3.7038345, y: -7.59111}
+      - {x: 5.1588774, y: -10.610996}
+      - {x: 3.5873585, y: -15.838703}
       - {x: 14.722578, y: -16.954323}
       - {x: 14.744001, y: -14.383083}
       - {x: 14.739828, y: -12.772156}
       - {x: 14.620895, y: -11.17009}
       - {x: 15.393772, y: -11.088356}
-      - {x: 15.309109, y: 2.4888}
+      - {x: 12.835033, y: 1.0949554}
   m_UseDelaunayMesh: 0
 --- !u!1839735485 &1751070191
 Tilemap:
@@ -23934,6 +24242,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 6472578480207984824, guid: 93bd043dcdd573c43bc0f676a1eefd44, type: 3}
   healthPotionPrefab: {fileID: 2307611514176089614, guid: cf3533dd9bca2514586ff46abb132ddf, type: 3}
   doors: {fileID: 622623005}
+  pointPosition: {fileID: 1178858109}
 --- !u!1 &1801519580
 GameObject:
   m_ObjectHideFlags: 0
@@ -24027,7 +24336,8 @@ Transform:
   m_LocalPosition: {x: 36.02, y: 12.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1404911179}
   m_Father: {fileID: 1961829504}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &1908652907
@@ -24133,6 +24443,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 4876704366753244523, guid: 2dc0c9e0ec9385a4f8bce1cd48350962, type: 3}
   healthPotionPrefab: {fileID: 2307611514176089614, guid: cf3533dd9bca2514586ff46abb132ddf, type: 3}
   doors: {fileID: 622623005}
+  pointPosition: {fileID: 1404911179}
 --- !u!1 &1961829503
 GameObject:
   m_ObjectHideFlags: 0
@@ -24191,6 +24502,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 6472578480207984824, guid: 93bd043dcdd573c43bc0f676a1eefd44, type: 3}
   healthPotionPrefab: {fileID: 2307611514176089614, guid: cf3533dd9bca2514586ff46abb132ddf, type: 3}
   doors: {fileID: 622623005}
+  pointPosition: {fileID: 0}
 --- !u!1 &1969822376
 GameObject:
   m_ObjectHideFlags: 0
@@ -24222,7 +24534,8 @@ Transform:
   m_LocalPosition: {x: -16.05, y: 53.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2056118276}
   m_Father: {fileID: 1961829504}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &1969822378
@@ -24269,13 +24582,15 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 7.8531303, y: 3.8420868}
-      - {x: -4.017517, y: 3.899021}
-      - {x: -4.0282044, y: -3.164959}
-      - {x: 10.7594595, y: -3.090164}
-      - {x: 10.920696, y: -9.168961}
-      - {x: 22.004921, y: -9.102566}
-      - {x: 22.15451, y: 3.71204}
+    - - {x: 19.323109, y: 1.5803871}
+      - {x: 9.085852, y: 2.2912445}
+      - {x: 6.4778605, y: 2.4569016}
+      - {x: -3.1029186, y: 2.387943}
+      - {x: -3.3919625, y: -1.0574036}
+      - {x: 10.878756, y: -2.1357992}
+      - {x: 12.829426, y: -7.180702}
+      - {x: 20.016663, y: -7.9096107}
+      - {x: 22.114744, y: 3.7915726}
   m_UseDelaunayMesh: 0
 --- !u!1839735485 &1969822379
 Tilemap:
@@ -24330,6 +24645,69 @@ MonoBehaviour:
   enemyPrefab: {fileID: 6472578480207984824, guid: 93bd043dcdd573c43bc0f676a1eefd44, type: 3}
   healthPotionPrefab: {fileID: 2307611514176089614, guid: cf3533dd9bca2514586ff46abb132ddf, type: 3}
   doors: {fileID: 622623005}
+  pointPosition: {fileID: 2056118276}
+--- !u!1 &2056118275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2056118276}
+  m_Layer: 0
+  m_Name: Potion Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2056118276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056118275}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 16.05, y: -1.85, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1969822377}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2092358544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2092358545}
+  m_Layer: 0
+  m_Name: Potion Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2092358545
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092358544}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.7, y: -4.9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 376009247}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2868114407617184304 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5400555719325361269, guid: 76d07bf17fd587d49bdafa416e23586e, type: 3}
@@ -24464,11 +24842,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: f31740dca69e3734d9d1912e580be648, type: 2}
     - target: {fileID: 4685675596851555465, guid: 44a10050d4482e74099ce8492b9b798f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 61.9
+      value: -1.78
       objectReference: {fileID: 0}
     - target: {fileID: 4685675596851555465, guid: 44a10050d4482e74099ce8492b9b798f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.1
+      value: 2.13
       objectReference: {fileID: 0}
     - target: {fileID: 4685675596851555465, guid: 44a10050d4482e74099ce8492b9b798f, type: 3}
       propertyPath: m_LocalPosition.z
